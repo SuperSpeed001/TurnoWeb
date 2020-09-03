@@ -1,0 +1,9 @@
+C:\TunoWeb\TurnoWeb\Turnos.Common\bin\Release\netstandard2.0\Turnos.Common.deps.json
+C:\TunoWeb\TurnoWeb\Turnos.Common\bin\Release\netstandard2.0\Turnos.Common.dll
+C:\TunoWeb\TurnoWeb\Turnos.Common\bin\Release\netstandard2.0\Turnos.Common.pdb
+C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Release\netstandard2.0\Turnos.Common.csprojAssemblyReference.cache
+C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Release\netstandard2.0\Turnos.Common.AssemblyInfoInputs.cache
+C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Release\netstandard2.0\Turnos.Common.AssemblyInfo.cs
+C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Release\netstandard2.0\Turnos.Common.csproj.CoreCompileInputs.cache
+C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Release\netstandard2.0\Turnos.Common.dll
+C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Release\netstandard2.0\Turnos.Common.pdb

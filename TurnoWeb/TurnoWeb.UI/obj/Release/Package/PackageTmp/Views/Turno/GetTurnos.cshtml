@@ -1,0 +1,76 @@
+﻿@model TurnoWeb.UI.Models.TablaTurnosViewModel
+
+<div>
+    <h4>TablaTurnosViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.hor_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hor_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hor_hora)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hor_hora)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hor_dia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hor_dia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hor_fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hor_fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hor_reserv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hor_reserv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tur_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tur_nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.box_nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.box_nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HoraSeleccionada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HoraSeleccionada)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
