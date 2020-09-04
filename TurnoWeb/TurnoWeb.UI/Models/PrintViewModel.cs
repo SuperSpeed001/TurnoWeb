@@ -10,6 +10,7 @@
         public string NombreTurno { get; set; }
         public string NombreBox { get; set; }
         public string Email { get; set; }
-       
+        public string Fecha { get; set; }
+
     }
 }

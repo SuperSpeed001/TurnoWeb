@@ -80,7 +80,7 @@ namespace TurnoWeb.UI.Controllers
 
         [Route("/Turno/CreateAjax")]
         [HttpPost]
-        public ActionResult CreateAjax(string dni, string nombre, string telefono, string email, string idHoraSel, string idTurnoSel, string fecha)
+        public ActionResult CreateAjax(string dni, string nombre, string telefono, string email, string idHoraSel, string idTurnoSel, string fecha, string observacion)
         {
             if (string.IsNullOrEmpty(dni)) return Json("Debe ingresar los datos");
             string[] datosId = idHoraSel.Split('/');
@@ -100,12 +100,10 @@ namespace TurnoWeb.UI.Controllers
             List<ControlTurnoViewModel> result = auxiliar.ControlTurno(dni, idTurno).ToList();
 
             if (result.Count == 0)
-            {
-                var personaId = auxiliar.IncertarPersona(dniValido, nombre, email, telefono, idHorario);
+            {                                                                                           //add 2 merge
+                var personaId = auxiliar.IncertarPersona(dniValido, nombre, email, telefono, idHorario, observacion);
                 if (personaId > 0)
                 {
-                    //Si todo sale bien llamar a una vista parcial para mostrar resultado en pdf
-                    //List<TurnoSeleccionadoViewModel> resultTurno = auxiliar.GetTurnoSeleccionado(idTurno).Result;
                     PrintViewModel model = new PrintViewModel
                     {
                         Dia = diaSel,  //nombreDia
@@ -115,52 +113,13 @@ namespace TurnoWeb.UI.Controllers
                         HoraId = idHorario,
                         Dni = dni,
                         Nombre = nombre,
-                        Email = email
+                        Email = email,
+                        Fecha = fecha
                     };
 
-                    //string path = Path.Combine(_env.ContentRootPath, "\\wwwroot\\images\\Local");
+                    byte[] data = auxiliar.GenerarImagen(model);
 
-                    //string imagenBase  = Path.Combine(_env.ContentRootPath, "\\wwwroot\\images\\turno.png");
-
-
-                    Bitmap bitimage;
-
-                    //bitimage = Bitmap.FromFile(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "imagen.jpg"));
-                    //bitimage = (Bitmap)Bitmap.FromFile(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\images", "turno.png")); //"~/images/turno.png"));
-                     bitimage = (Bitmap)Image.FromFile(Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/wwwroot/image/"), "turno.png"));
-                    Font myFontLabels = new Font("Calibri", 14);
-                    SolidBrush myBrushLabels = new SolidBrush(Color.White);
-                    Bitmap newimage = new Bitmap(bitimage.Width, bitimage.Height + 100);
-                    Graphics gr = Graphics.FromImage(newimage);
-                    gr.DrawImageUnscaled(bitimage, 0, 0);
-                    var uniqueFileName = string.Empty;
-                    try
-                    {
-                        gr.DrawString("Nombre: " + model.Nombre, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height, bitimage.Width, 50));
-                        gr.DrawString("DNI  : " + model.Dni, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 20, bitimage.Width, 50));
-                        gr.DrawString("Turno: " + model.NombreTurno, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 40, bitimage.Width, 50));
-                        gr.DrawString("Día: " + model.Dia + " " + "Hora: " + model.Hora, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 60, bitimage.Width, 50));
-                        gr.DrawString("El presente Turno es válido para el día solicitado.", myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 80, bitimage.Width, 50));
-                        uniqueFileName = Guid.NewGuid().ToString() + "_" + "Turno";
-                        newimage.Save(Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/wwwroot/imageTurno/") + uniqueFileName + ".png"));
-                    }
-                    catch (Exception ex)
-                    {
-
-                        throw ex;
-                    }
-                    gr.Dispose();
-                    bitimage.Dispose();
-
-                    FileStream fileStream = new FileStream(Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/wwwroot/imageTurno/") + uniqueFileName + ".png"), FileMode.Open, FileAccess.Read);
-                    byte[] data = new byte[(int)fileStream.Length];
-                    fileStream.Read(data, 0, data.Length);
-
-                    return Json(new { base64imgage = Convert.ToBase64String(data) });
-                    //ViewData["data"] = modeloCompleto;
-                    //HttpContext.Session.SetObjectAsJson("data", modeloCompleto);//store complex objects
-                    //return RedirectToAction("TurnoPdf");
-                    //return View("TurnoPdf", modeloCompleto);
+                    return Json(new { base64imgage = Convert.ToBase64String(data) });                   
 
                 }
                 else
@@ -175,7 +134,7 @@ namespace TurnoWeb.UI.Controllers
                 {
                     cadenaVacia = "Usted ya solicitó un Turno con Fecha " +item.FechaTurno;
                 }
-                //return Json("Usted ya tiene Turno asignado el dia " + result[0].DiaTurno + " fecha: " + result[0].FechaTurno);
+               
                 return Json(cadenaVacia);   //ya tiene turno asignado
             }
         }

@@ -4,9 +4,9 @@
     using System.Collections.Generic;
     using System.Configuration;
     using System.Data;
-    using System.Data.SqlClient;   
-    using System.Linq;    
-    using System.Threading.Tasks;  
+    using System.Data.SqlClient;
+    using System.Drawing;
+    using System.IO;
     using Turnos.Common.Models.DB;    
     using TurnoWeb.UI.Models;
 
@@ -40,7 +40,7 @@
         {
             connection();
             using (SqlCommand cmd = new SqlCommand("sp_listarTurnos", con))
-            {
+            {                
                 cmd.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
@@ -50,7 +50,7 @@
                 da.Fill(dt);
 
                 foreach (DataRow item in dt.Rows)
-                {
+                {                   
                     response.Add(MapToValue(item));
                 }
                 return response;
@@ -61,8 +61,7 @@
         {
             connection();
             var query = horaMinutosSegundo == string.Empty ? "sp_ListarHorarioPorFecha" : "sp_ListarHorarioPorFechaHora";
-            List<TablaTurnosViewModel> lista = new List<TablaTurnosViewModel>();
-
+           
             using (SqlCommand cmd = new SqlCommand(query, con))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -113,10 +112,10 @@
 
             }
         }
-
-        public int IncertarPersona(int dni, string nombre, string email, string telefono, int horaId)
+                                                                                                        //add 2 merge
+        public int IncertarPersona(int dni, string nombre, string email, string telefono, int horaId, string observacion)
         {
-            string personaId = string.Empty;
+
             connection();
             using (SqlCommand cmd = new SqlCommand("sp_insertPersona", con))
             {
@@ -134,14 +133,14 @@
                 try
                 {
                     cmd.ExecuteNonQuery();
-                    personaId = cmd.Parameters["@per_id"].Value.ToString();
+                    string personaId = cmd.Parameters["@per_id"].Value.ToString();
 
                     using (SqlCommand cmd2 = new SqlCommand("sp_updateHorario", con))
                     {
                         cmd2.CommandType = CommandType.StoredProcedure;
                         cmd2.Parameters.Add(new SqlParameter("@hor_id", horaId));
-                        cmd2.Parameters.Add(new SqlParameter("@per_id", int.Parse(personaId)));
-
+                        cmd2.Parameters.Add(new SqlParameter("@per_id", int.Parse(personaId))); 
+                        cmd2.Parameters.Add(new SqlParameter("@hor_obser", (observacion == string.Empty ? " " : observacion) ));       //add 2 merge
                         cmd2.ExecuteNonQuery();
                     }
 
@@ -158,8 +157,46 @@
                     con.Close();
                 }
             }
-        }              
-             
+        }
+
+        internal byte[] GenerarImagen(PrintViewModel model)
+        {
+            Bitmap bitimage;
+
+            bitimage = (Bitmap)Image.FromFile(Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/wwwroot/image/"), "turno.png"));
+            Font myFontLabels = new Font("Calibri", 14);
+            _ = new SolidBrush(Color.White);
+            Bitmap newimage = new Bitmap(bitimage.Width, bitimage.Height + 100);
+            Graphics gr = Graphics.FromImage(newimage);
+            gr.DrawImageUnscaled(bitimage, 0, 0);
+            string uniqueFileName;
+            try
+            {
+                gr.DrawString("Turno: " + model.NombreTurno, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height, bitimage.Width, 50));
+                gr.DrawString("Nombre: " + model.Nombre, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 20, bitimage.Width, 50));
+                gr.DrawString("D.N.I. : " + model.Dni, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 40, bitimage.Width, 50));
+                gr.DrawString("Fecha: " + model.Fecha + " " + "Hora: " + model.Hora, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 60, bitimage.Width, 50));
+                gr.DrawString("El presente Turno es válido para el día solicitado.", myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 80, bitimage.Width, 50));
+                uniqueFileName = Guid.NewGuid().ToString() + "_" + "Turno";
+                newimage.Save(Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/wwwroot/imageTurno/") + uniqueFileName + ".png"));
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            gr.Dispose();
+            bitimage.Dispose();
+
+            FileStream fileStream = new FileStream(Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/wwwroot/imageTurno/") + uniqueFileName + ".png"), FileMode.Open, FileAccess.Read);
+            byte[] data = new byte[(int)fileStream.Length];
+            fileStream.Read(data, 0, data.Length);
+
+            return data;
+        }
+
+
+        #region Metodos Privados
 
         private sp_ListarTurnos MapToValue(DataRow reader)
         {
@@ -200,5 +237,8 @@
             }
            
         }
+        
+        #endregion
+
     }
 }

@@ -1,43 +1,56 @@
 ﻿@model TurnoWeb.UI.Models.TurnoViewModel
 
 @{
-    ViewBag.Title = "Sistema de Turnos I.V.U.J.";
+    ViewBag.Title = "Sistema de Turnos Web I.V.U.J.";
 }
 
-<h2>Sistema de Turnos I.V.U.J.</h2>
+<h2>Sistema de Turnos WEB I.V.U.J.</h2>
 <div class="row">
-     @Html.AntiForgeryToken()
-
-
+    @using (Html.BeginForm("CreateAjax", "Turno", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
 
         <div id="form" class="panel panel-default">
-            <div class="col-lg-6 ">
+            <div class="col-lg-6 panel-body">
                 <!-- Your first column here -->
-
+                <div></div>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
                 <div class="form-group">
-                    @Html.LabelFor(model => model.PerNombre, htmlAttributes: new { @class = "col-sm-6 control-label " })
+                    @Html.LabelFor(model => model.ListadoTurnos, htmlAttributes: new { @class = "col-sm-6 control-label " })
                     <div>
-                        @Html.EditorFor(model => model.PerNombre, new { htmlAttributes = new { @class = "form-control", @id = "idPerNombre" } })
+                        @Html.DropDownListFor(x => Model.TurId, Model.ListadoTurnos, htmlAttributes: new { @class = "form-control", id = "ddTurId" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div>
+                        @Html.EditorFor(model => model.PerNombre, new { htmlAttributes = new { @class = "form-control", @id = "idPerNombre", placeholder = "Nombre y Apellido Titular" } })
                         @Html.ValidationMessageFor(model => model.PerNombre, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.PerDni, htmlAttributes: new { @class = "col-sm-6 control-label " })
                     <div>
-                        @Html.EditorFor(model => model.PerDni, new { htmlAttributes = new { @class = "form-control", @id = "idPerDni" } })
+                        @Html.EditorFor(model => model.PerDni, new { htmlAttributes = new { @class = "form-control", @id = "idPerDni", placeholder = "D.N.I." } })
                         @Html.ValidationMessageFor(model => model.PerDni, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.PerEmail, htmlAttributes: new { @class = "col-sm-6 control-label " })
                     <div>
-                        @Html.EditorFor(model => model.PerEmail, new { htmlAttributes = new { @class = "form-control", @id = "idPerEmail" } })
+                        @Html.EditorFor(model => model.PerEmail, new { htmlAttributes = new { @class = "form-control", @id = "idPerEmail", placeholder = "Correo electrónico" } })
                         @Html.ValidationMessageFor(model => model.PerEmail, "", new { @class = "text-danger" })
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <div>
+                        @Html.EditorFor(model => model.RepPerEmail, new { htmlAttributes = new { @class = "form-control", @id = "idRepPerEmail", placeholder = "Repetir Correo electrónico", onpaste = "return false" } })
+                        @Html.ValidationMessageFor(model => model.RepPerEmail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.PerTelef, htmlAttributes: new { @class = "col-sm-6 control-label " })
@@ -47,10 +60,12 @@
                     </div>
                 </div>
 
-
                 <div class="form-group">
-
-                    @Html.DropDownListFor(x => Model.TurId, Model.ListadoTurnos, htmlAttributes: new { @class = "form-control", id = "ddTurId" })
+                    @Html.LabelFor(model => model.PerObservacion, htmlAttributes: new { @class = "col-sm-6 control-label " })
+                    <div>
+                        @Html.EditorFor(model => model.PerObservacion, new { htmlAttributes = new { @class = "form-control", @id = "idPerObs" } })
+                        @Html.ValidationMessageFor(model => model.PerObservacion, "", new { @class = "text-danger" })
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -60,7 +75,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-lg-6 panel-body">
                 <!--Aqui va la segunda columna para abajo-->
                 <div class="form-group">
                     @Html.LabelFor(model => model.PerFalta, htmlAttributes: new { @class = "col-sm-6 control-label " })
@@ -89,9 +104,9 @@
             </div>
 
         </div>
+    }
 
-
-    </div>
+</div>
 
 <div id="modal" class="modal" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -145,7 +160,7 @@
 
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-
+    <script src="~/Scripts/bootbox/bootbox.min.js"></script>
     <style type="text/css">
         .span3 {
             position: relative;
@@ -158,12 +173,34 @@
 
     <script type="text/javascript">
 
+        $('#idRepPerEmail').keydown(function (e) {
+            var code = e.keyCode || e.which;
+            var otroEmail = $("#idRepPerEmail").val();
+            var email = $("#idPerEmail").val();
+            if (code === 9) {
+
+                if (otroEmail === email) {
+
+                } else {
+                    e.stopPropagation();
+
+                    bootbox.alert({
+                        size: "small",
+                        title: "I.V.U.J.",
+                        message: "Debes ingresar el correo correctamente.",
+                        callback: function () {  }
+                    });
+                }
+
+            }
+        });
+
          $(function() {
 
                 $("#SubmitBtn").click(function (e) {
 
-                        //e.preventDefault();
-
+                        e.preventDefault();
+                        e.stopPropagation();
                     // Mostramos el Ajax Loader
                     $("#AjaxLoader").show("fast");
 
@@ -232,28 +269,21 @@
 
         $(function () {
             $("#btnCreate").click(function (e) {
+
+                e.preventDefault();
+
+
                 var dniId = $("#idPerDni").val();
                 var nombreId = $("#idPerNombre").val();
                 var telefonoId = $("#idPerTelef").val();
                 var emailId = $("#idPerEmail").val();
+                var otroEmail = $("#idRepPerEmail").val();
                 var turnoId = $("#ddTurId").val();
                 var fechaSeleccionada = $("#PerFalta").val();
                 var valorSeleccionado = $("input[name='groupRadio']:checked").attr("id");
-
-                if (!dniId.trim() && !nombreId.trim() && !telefonoId.trim() && !emailId.trim() && !turnoId.trim() && !fechaSeleccionada.trim()) {
-                    //alert("Alerta");
-                    e.preventDefault();
-                    //$('#modalError').modal('show');
-                    bootbox.alert({
-                        size: "small",
-                        title: "I.V.U.J.",
-                        message: "Debes ingresar los datos en el formulario.",
-                        callback: function () { location.reload(); }
-                    });
-
-                    //
-                } else {
-                    //alert("dni " + dniId.toString() + "/" + valorSeleccionado.toString() + "/" + nombreId.toString() + "/" + telefonoId.toString() + "/" + emailId.toString() + "/" + turnoId.toString());
+                var obserId = $("#idPerObs").val()
+                if (emailId === otroEmail && dniId.length > 0 && nombreId.length > 0 && telefonoId.length > 0 && fechaSeleccionada.length > 0 ) {
+                     //alert("dni " + dniId.toString() + "/" + valorSeleccionado.toString() + "/" + nombreId.toString() + "/" + telefonoId.toString() + "/" + emailId.toString() + "/" + turnoId.toString());
                     $.ajax({
                         url: '@Url.Action("CreateAjax", "Turno")', //"/Solicitar/CreateAjax",
                         data: {
@@ -264,7 +294,8 @@
                             email: emailId,
                             idHoraSel: valorSeleccionado,
                             idTurnoSel: turnoId,
-                            fecha: fechaSeleccionada
+                            fecha: fechaSeleccionada,
+                            observacion : obserId
                         },
                         type: "post"  // Verbo HTTP
                     }).done(function (data) {
@@ -285,7 +316,7 @@
                             $("#h2Error").html(varMensaje);
                             $('#modalError').modal('show');
                         }
-                        
+
 
 
 
@@ -300,6 +331,16 @@
                             //location.reload(); por el momento comentado
                         });
                     });
+                   
+
+                    //
+                } else {
+                    bootbox.alert({
+                        size: "small",
+                        title: "I.V.U.J.",
+                        message: "Debes ingresar los datos en el formulario.",
+                        callback: function () {  }
+                    });
                 }
 
             });
@@ -310,7 +351,6 @@
             location.reload();
         });
 
-       
     </script>
 
 
