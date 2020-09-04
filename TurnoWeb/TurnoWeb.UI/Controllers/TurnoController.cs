@@ -114,7 +114,8 @@ namespace TurnoWeb.UI.Controllers
                         Dni = dni,
                         Nombre = nombre,
                         Email = email,
-                        Fecha = fecha
+                        Fecha = fecha,
+                        Observacion = observacion
                     };
 
                     byte[] data = auxiliar.GenerarImagen(model);

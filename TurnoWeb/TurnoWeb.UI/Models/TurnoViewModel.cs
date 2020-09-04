@@ -12,7 +12,7 @@
         
         public int TurId { get; set; }
 
-        [Display(Name = "Seleccione Tramites a realizar...")]
+        [Display(Name = "Seleccione Trámites a realizar...")]
         public List<SelectListItem> ListadoTurnos { get; set; }
 
         public int Dia { get; set; }

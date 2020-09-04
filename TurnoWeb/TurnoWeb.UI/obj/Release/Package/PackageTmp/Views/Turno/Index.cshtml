@@ -52,18 +52,16 @@
                 </div>
 
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PerTelef, htmlAttributes: new { @class = "col-sm-6 control-label " })
+                <div class="form-group">                    
                     <div>
-                        @Html.EditorFor(model => model.PerTelef, new { htmlAttributes = new { @class = "form-control", @id = "idPerTelef" } })
+                        @Html.EditorFor(model => model.PerTelef, new { htmlAttributes = new { @class = "form-control", @id = "idPerTelef", placeholder = "Teléfono" } })
                         @Html.ValidationMessageFor(model => model.PerTelef, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PerObservacion, htmlAttributes: new { @class = "col-sm-6 control-label " })
+                <div class="form-group">                   
                     <div>
-                        @Html.EditorFor(model => model.PerObservacion, new { htmlAttributes = new { @class = "form-control", @id = "idPerObs" } })
+                        <textarea id="idPerObs" class="form-control text-box multi-line" name="texto" cols="40" rows="3" placeholder="Si no vendrá el/la Titular, escribir aquí Nombre, Apellido y DNI de quien asistirá. "></textarea>
                         @Html.ValidationMessageFor(model => model.PerObservacion, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -90,7 +88,7 @@
                     <img id="AjaxLoader" alt="Enviando ..." style="display:none; width:50px; height:50px;" src="~/wwwroot/image/loader.gif" />
 
                     <button id="SubmitBtn" class="btn btn-info">
-                        Buscar Turnos
+                        Buscar Túrnos
                     </button>
                     <div>
 
@@ -166,6 +164,10 @@
             position: relative;
             height: 200px;
             overflow: auto;
+        }
+        .multi-line {
+            height: 5em;
+            width: 25em;
         }
     </style>
 

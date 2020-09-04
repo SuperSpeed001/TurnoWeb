@@ -11,6 +11,7 @@
         public string NombreBox { get; set; }
         public string Email { get; set; }
         public string Fecha { get; set; }
+        public string Observacion { get; set; }
 
     }
 }
