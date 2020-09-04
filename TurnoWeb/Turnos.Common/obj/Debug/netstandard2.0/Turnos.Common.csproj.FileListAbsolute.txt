@@ -15,4 +15,3 @@ C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.Assembl
 C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.csproj.CoreCompileInputs.cache
 C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.dll
 C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.pdb
-C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.csprojAssemblyReference.cache

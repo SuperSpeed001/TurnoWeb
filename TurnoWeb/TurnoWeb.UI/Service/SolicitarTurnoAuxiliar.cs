@@ -166,6 +166,7 @@
 
             bitimage = (Bitmap)Image.FromFile(Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/wwwroot/image/"), "turno.png"));
             Font myFontLabels = new Font("Calibri", 14);
+            Font myFontLabelP = new Font("Calibri", 10);
             _ = new SolidBrush(Color.White);
             Bitmap newimage = new Bitmap(bitimage.Width, bitimage.Height + 100);
             Graphics gr = Graphics.FromImage(newimage);
@@ -173,19 +174,22 @@
             string uniqueFileName;
             try
             {
-                gr.DrawString("Turno: " + model.NombreTurno, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height, bitimage.Width, 50));
+                gr.DrawString("Turno: " + model.NombreTurno + "   " + model.NombreBox, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height, bitimage.Width, 50));
 
-                gr.DrawString("Nombre: " + model.Nombre, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 20, bitimage.Width, 50));
+                gr.DrawString("Nombre y Apellido TITULAR: " + model.Nombre, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 20, bitimage.Width, 50));
                 gr.DrawString("D.N.I. : " + model.Dni, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 40, bitimage.Width, 50));
                 gr.DrawString("Fecha: " + model.Fecha + " " + "Hora: " + model.Hora, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 60, bitimage.Width, 50));
                 if (model.Observacion.IsNullOrWhiteSpace())
                 {
-                    //gr.DrawString("El presente Turno es válido para el día solicitado.", myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 80, bitimage.Width, 50));
+                    gr.DrawString("El turno es válido como permiso de circulación desde tu casa al IVUJ. ", myFontLabelP, Brushes.Brown, new RectangleF(5, bitimage.Height + 80, bitimage.Width, 50));
                 }
                 else
                 {
                     gr.DrawString("Observación: " + model.Observacion, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 80, bitimage.Width, 50));
+                    gr.DrawString("El turno es válido como permiso de circulación desde tu casa al IVUJ. ", myFontLabelP, Brushes.Brown, new RectangleF(5, bitimage.Height + 100, bitimage.Width, 50));
                 }
+
+                //l turno es válido como permiso de circulación desde tu casa al IVUJ.
                 //gr.DrawString("El presente Turno es válido para el día solicitado.", myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 80, bitimage.Width, 50));
                 uniqueFileName = Guid.NewGuid().ToString() + "_" + "Turno";
                 newimage.Save(Path.Combine(System.Web.Hosting.HostingEnvironment.MapPath("~/wwwroot/imageTurno/") + uniqueFileName + ".png"));

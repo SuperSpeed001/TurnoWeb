@@ -227,10 +227,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/03/2020 07:24:15</publishTime>
     </File>
     <File Include="bin/TurnoWeb.UI.dll">
-      <publishTime>09/04/2020 09:19:44</publishTime>
+      <publishTime>09/04/2020 12:21:30</publishTime>
     </File>
     <File Include="bin/TurnoWeb.UI.pdb">
-      <publishTime>09/04/2020 09:19:44</publishTime>
+      <publishTime>09/04/2020 12:21:30</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -307,6 +307,15 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/bootstrap.min.js">
       <publishTime>09/01/2020 09:58:03</publishTime>
     </File>
+    <File Include="Scripts/donwloadImg/add-download-btn.js">
+      <publishTime>09/04/2020 10:21:34</publishTime>
+    </File>
+    <File Include="Scripts/donwloadImg/LICENSE">
+      <publishTime>09/04/2020 09:51:32</publishTime>
+    </File>
+    <File Include="Scripts/donwloadImg/README.md">
+      <publishTime>09/04/2020 09:51:32</publishTime>
+    </File>
     <File Include="Scripts/jquery-3.4.1.js">
       <publishTime>09/01/2020 09:58:05</publishTime>
     </File>
@@ -356,13 +365,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/01/2020 09:58:00</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>09/03/2020 13:38:38</publishTime>
+      <publishTime>09/04/2020 10:49:20</publishTime>
     </File>
     <File Include="Views/Turno/GetTurnos.cshtml">
       <publishTime>09/02/2020 21:43:40</publishTime>
     </File>
     <File Include="Views/Turno/Index.cshtml">
-      <publishTime>09/04/2020 09:06:39</publishTime>
+      <publishTime>09/04/2020 12:16:46</publishTime>
     </File>
     <File Include="Views/Turno/_TablaTurnosPartial.cshtml">
       <publishTime>09/03/2020 10:14:35</publishTime>

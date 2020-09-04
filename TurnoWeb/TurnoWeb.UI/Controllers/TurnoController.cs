@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Server;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -74,7 +75,7 @@ namespace TurnoWeb.UI.Controllers
                 result = auxiliar.ListarHorarioPorFecha(turnoId, fecha, string.Empty);
             }
 
-            ViewData["Titulo"] = result.Count > 0 ? result[1].tur_nombre + " para el día " + result[1].hor_dia : "";
+            ViewData["Titulo"] = result.Count > 0 ? result[1].tur_nombre : "";
             return PartialView("_TablaTurnosPartial", result);
         }
 
@@ -88,7 +89,7 @@ namespace TurnoWeb.UI.Controllers
             var horaSel = datosId[1];
             var diaSel = datosId[3];
             var nombreTurno = datosId[4];
-
+            var fechaActualizada = DateTime.Parse(fecha);
             var exito1 = int.TryParse(dni, out int dniValido);
             var exito2 = int.TryParse(datosId[0], out int idHorario);
             var exito3 = int.TryParse(idTurnoSel, out int idTurno);
@@ -114,7 +115,7 @@ namespace TurnoWeb.UI.Controllers
                         Dni = dni,
                         Nombre = nombre,
                         Email = email,
-                        Fecha = fecha,
+                        Fecha = fechaActualizada.Day.ToString() + "/" + fechaActualizada.Month.ToString() + "/" + fechaActualizada.Year.ToString(),
                         Observacion = observacion
                     };
 
