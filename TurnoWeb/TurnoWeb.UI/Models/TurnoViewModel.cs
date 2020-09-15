@@ -58,5 +58,6 @@
         public string PerObservacion { get; set; }
 
         public List<TablaTurnosViewModel> TablaTurnosViewModels { get; set; }
+        public List<ListadoTurnoReservadosViewModel> ListadoTurnoReservados { get; set; }
     }
 }

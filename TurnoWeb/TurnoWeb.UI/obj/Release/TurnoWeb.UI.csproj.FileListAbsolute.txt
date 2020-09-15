@@ -91,3 +91,12 @@ C:\TunoWeb\TurnoWeb\TurnoWeb.UI\obj\Release\TurnoWeb.UI.csproj.CoreCompileInputs
 C:\TunoWeb\TurnoWeb\TurnoWeb.UI\obj\Release\TurnoWeb.UI.csproj.CopyComplete
 C:\TunoWeb\TurnoWeb\TurnoWeb.UI\obj\Release\TurnoWeb.UI.dll
 C:\TunoWeb\TurnoWeb\TurnoWeb.UI\obj\Release\TurnoWeb.UI.pdb
+C:\TunoWeb\TurnoWeb\TurnoWeb.UI\bin\ClosedXML.dll
+C:\TunoWeb\TurnoWeb\TurnoWeb.UI\bin\DocumentFormat.OpenXml.dll
+C:\TunoWeb\TurnoWeb\TurnoWeb.UI\bin\ExcelNumberFormat.dll
+C:\TunoWeb\TurnoWeb\TurnoWeb.UI\bin\System.IO.Packaging.dll
+C:\TunoWeb\TurnoWeb\TurnoWeb.UI\bin\ClosedXML.pdb
+C:\TunoWeb\TurnoWeb\TurnoWeb.UI\bin\ClosedXML.xml
+C:\TunoWeb\TurnoWeb\TurnoWeb.UI\bin\DocumentFormat.OpenXml.xml
+C:\TunoWeb\TurnoWeb\TurnoWeb.UI\bin\ExcelNumberFormat.xml
+C:\TunoWeb\TurnoWeb\TurnoWeb.UI\bin\System.IO.Packaging.xml

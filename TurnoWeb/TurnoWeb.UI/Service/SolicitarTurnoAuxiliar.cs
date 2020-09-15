@@ -1,6 +1,5 @@
 ﻿namespace TurnosWeb.UI
 {
-    using Microsoft.Ajax.Utilities;
     using System;
     using System.Collections.Generic;
     using System.Configuration;
@@ -8,36 +7,23 @@
     using System.Data.SqlClient;
     using System.Drawing;
     using System.IO;
-    using Turnos.Common.Models.DB;    
     using TurnoWeb.UI.Models;
 
     public class SolicitarTurnoAuxiliar
-    {
-        
-        
-        public SqlConnection _connectionString
-        {
-            get
-            {
-                return new SqlConnection(ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString);
-            }
-        }
+    {     
 
-        public SolicitarTurnoAuxiliar()
-        {
-            
-        }
-
+        public SolicitarTurnoAuxiliar() {  }
         private SqlConnection con;
-        //To Handle connection related activities    
+          
         private void connection()
         {
-            string constr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+             string constr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();     //PRODUCCION
+           //string constr = ConfigurationManager.ConnectionStrings["TestConnection"].ToString();       //TEST
             con = new SqlConnection(constr);
 
         }
 
-        public List<sp_ListarTurnos> GetTurnos()
+        public List<ListadoTurnoViewModel> GetTurnos()
         {
             connection();
             using (SqlCommand cmd = new SqlCommand("sp_listarTurnos", con))
@@ -46,7 +32,7 @@
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
 
-                var response = new List<sp_ListarTurnos>();
+                var response = new List<ListadoTurnoViewModel>();
                 con.Open();
                 da.Fill(dt);
 
@@ -168,7 +154,8 @@
             Font myFontLabels = new Font("Calibri", 14);
             Font myFontLabelP = new Font("Calibri", 10);
             _ = new SolidBrush(Color.White);
-            Bitmap newimage = new Bitmap(bitimage.Width, bitimage.Height + 100);
+            
+            Bitmap newimage = string.IsNullOrWhiteSpace(model.Observacion) ? new Bitmap(bitimage.Width, bitimage.Height + 100) : new Bitmap(bitimage.Width, bitimage.Height + 120);
             Graphics gr = Graphics.FromImage(newimage);
             gr.DrawImageUnscaled(bitimage, 0, 0);
             string uniqueFileName;
@@ -179,7 +166,7 @@
                 gr.DrawString("Nombre y Apellido TITULAR: " + model.Nombre, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 20, bitimage.Width, 50));
                 gr.DrawString("D.N.I. : " + model.Dni, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 40, bitimage.Width, 50));
                 gr.DrawString("Fecha: " + model.Fecha + " " + "Hora: " + model.Hora, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 60, bitimage.Width, 50));
-                if (model.Observacion.IsNullOrWhiteSpace())
+                if (string.IsNullOrEmpty(model.Observacion))
                 {
                     gr.DrawString("El turno es válido como permiso de circulación desde tu casa al IVUJ. ", myFontLabelP, Brushes.Brown, new RectangleF(5, bitimage.Height + 80, bitimage.Width, 50));
                 }
@@ -187,8 +174,9 @@
                 {
                     gr.DrawString("Observación: " + model.Observacion, myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 80, bitimage.Width, 50));
                     gr.DrawString("El turno es válido como permiso de circulación desde tu casa al IVUJ. ", myFontLabelP, Brushes.Brown, new RectangleF(5, bitimage.Height + 100, bitimage.Width, 50));
-                }
 
+                }
+                    
                 //l turno es válido como permiso de circulación desde tu casa al IVUJ.
                 //gr.DrawString("El presente Turno es válido para el día solicitado.", myFontLabels, Brushes.Brown, new RectangleF(5, bitimage.Height + 80, bitimage.Width, 50));
                 uniqueFileName = Guid.NewGuid().ToString() + "_" + "Turno";
@@ -209,15 +197,70 @@
             return data;
         }
 
+       /* public List<ListadoTurnoReservadosViewModel> GetTurnosReservados()
+        {
+            connection();
+            var query = "select T.tur_nombre, H.hor_fecha, H.hor_dia, H.hor_hora, P.per_dni, P.per_nombre, H.hor_obser, B.box_nombre, H.hor_reserv from Horarios As H " +
+                            " inner join Personas As P on H.per_id = P.per_id " +
+                            " inner join Box_Turnos As B on H.box_id = B.box_id " +
+                            " inner join Turnos As T on H.tur_id = T.tur_id ";
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                cmd.CommandType = CommandType.Text;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                var response = new List<ListadoTurnoReservadosViewModel>();
+                con.Open();
+                da.Fill(dt);
+
+                foreach (DataRow item in dt.Rows)
+                {
+                    response.Add(MapToValueGeneric(item));
+                }
+                return response;
+
+            }
+        }*/
+
+
+        public List<ListadoTurnoReservadosViewModel> GetTurnosPorFecha(int turnoId, string dia, string mes, string anio)
+        {
+            connection();
+            var query ="sp_listarTurnosPorFecha";
+            var fecha = anio + mes + dia;
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@tur_id", turnoId));
+                cmd.Parameters.Add(new SqlParameter("@hor_fecha", fecha));
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                var response = new List<ListadoTurnoReservadosViewModel>();
+                con.Open();
+                da.Fill(dt);
+
+                foreach (DataRow item in dt.Rows)
+                {
+                    response.Add(MapToValueBusqueda(item));
+                }
+                return response;
+            }
+
+        }
+
 
         #region Metodos Privados
 
-        private sp_ListarTurnos MapToValue(DataRow reader)
+        private ListadoTurnoViewModel MapToValue(DataRow reader)
         {
-            return new sp_ListarTurnos()
+            return new ListadoTurnoViewModel()
             {
-                tur_id = (int)reader["tur_id"],
-                tur_nombre = reader["tur_nombre"].ToString()
+                Idturno = (int)reader["tur_id"],
+                NombreTurno = reader["tur_nombre"].ToString()
             };
         }
 
@@ -251,7 +294,43 @@
             }
            
         }
-        
+
+       /* private ListadoTurnoReservadosViewModel MapToValueGeneric(DataRow reader)
+        {
+
+            return new ListadoTurnoReservadosViewModel
+            {
+                NombreTurno = (string)reader["tur_nombre"],
+                Fecha = DateTime.Parse(reader["hor_fecha"].ToString()),
+                Dia = (string)reader["hor_dia"],
+                Hora = (string)reader["hor_hora"],
+                Dni = (string)reader["per_dni"],
+                NombrePersona = (string)reader["per_nombre"],
+                Observacion = (string)reader["hor_obser"],
+                NombreBox = (string)reader["box_nombre"],
+                Estado = (bool)reader["hor_reserv"]
+                
+            };
+        }*/
+
+        private ListadoTurnoReservadosViewModel MapToValueBusqueda(DataRow reader)
+        {
+
+            return new ListadoTurnoReservadosViewModel
+            {
+                IdHora = (int)reader["hor_id"],
+                Fecha = DateTime.Parse(reader["hor_fecha"].ToString()),
+                Dia = (string)reader["hor_dia"],
+                Hora = (string)reader["hor_hora"],
+                Dni = (string)reader["per_dni"],
+                NombrePersona = (string)reader["per_nombre"],
+                Observacion = (string)reader["hor_obser"],
+                NombreBox = (string)reader["box_nombre"],
+                EmailPersona = (string)reader["per_email"],
+                TelefonoPersona = (string)reader["per_telef"]
+            };
+        }
+
         #endregion
 
     }

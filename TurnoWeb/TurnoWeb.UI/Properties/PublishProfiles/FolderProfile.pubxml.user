@@ -19,6 +19,15 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/BundleTransformer.Core.dll">
       <publishTime>12/26/2018 19:43:20</publishTime>
     </File>
+    <File Include="bin/ClosedXML.dll">
+      <publishTime>05/25/2020 10:43:54</publishTime>
+    </File>
+    <File Include="bin/ClosedXML.pdb">
+      <publishTime>05/25/2020 10:43:52</publishTime>
+    </File>
+    <File Include="bin/DocumentFormat.OpenXml.dll">
+      <publishTime>07/17/2020 18:55:04</publishTime>
+    </File>
     <File Include="bin/es/System.Web.Helpers.resources.dll">
       <publishTime>11/28/2018 13:04:36</publishTime>
     </File>
@@ -39,6 +48,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="bin/es/System.Web.WebPages.resources.dll">
       <publishTime>11/28/2018 13:04:36</publishTime>
+    </File>
+    <File Include="bin/ExcelNumberFormat.dll">
+      <publishTime>03/13/2020 09:36:50</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/05/2018 16:10:50</publishTime>
@@ -199,6 +211,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/ru-ru/BundleTransformer.Core.resources.dll">
       <publishTime>12/26/2018 19:43:20</publishTime>
     </File>
+    <File Include="bin/System.IO.Packaging.dll">
+      <publishTime>11/15/2019 08:56:30</publishTime>
+    </File>
     <File Include="bin/System.Web.Helpers.dll">
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
@@ -221,16 +236,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/28/2018 13:04:24</publishTime>
     </File>
     <File Include="bin/Turnos.Common.dll">
-      <publishTime>09/03/2020 07:24:15</publishTime>
+      <publishTime>09/10/2020 11:41:36</publishTime>
     </File>
     <File Include="bin/Turnos.Common.pdb">
-      <publishTime>09/03/2020 07:24:15</publishTime>
+      <publishTime>09/10/2020 11:41:36</publishTime>
     </File>
     <File Include="bin/TurnoWeb.UI.dll">
-      <publishTime>09/04/2020 12:21:30</publishTime>
+      <publishTime>09/15/2020 11:25:43</publishTime>
     </File>
     <File Include="bin/TurnoWeb.UI.pdb">
-      <publishTime>09/04/2020 12:21:30</publishTime>
+      <publishTime>09/15/2020 11:25:43</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -258,6 +273,267 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Content/bootstrap.min.css.map">
       <publishTime>09/01/2020 09:58:04</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/datatables-select.min.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/datatables-select.min.css.map">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/datatables-select2.min.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/datatables-select2.min.css.map">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/datatables.min.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/datatables.min.css.map">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/datatables2.min.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/datatables2.min.css.map">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/directives.min.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/directives.min.css.map">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/flag.min.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/flag.min.css.map">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/jquery.zmd.hierarchical-display.min.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/jquery.zmd.hierarchical-display.min.css.map">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/rating.min.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/addons/rating.min.css.map">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/bootstrap.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/bootstrap.min.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/mdb.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/mdb.lite.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/mdb.lite.min.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/mdb.lite.min.css.map">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/mdb.min.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/mdb.min.css.map">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/modules/animations-extended.min.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/modules/animations-extended.min.css.map">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/css/style.css">
+      <publishTime>09/09/2020 12:56:59</publishTime>
+    </File>
+    <File Include="Content/Material/index.html">
+      <publishTime>09/09/2020 12:57:19</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/datatables-select.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/datatables-select.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/datatables-select2.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/datatables-select2.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/datatables.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/datatables.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/datatables2.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/datatables2.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/directives.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/directives.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/flag.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/flag.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/imagesloaded.pkgd.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/imagesloaded.pkgd.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/jquery.zmd.hierarchical-display.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/jquery.zmd.hierarchical-display.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/masonry.pkgd.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/masonry.pkgd.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/rating.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/addons/rating.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/bootstrap.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/bootstrap.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/jquery.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/jquery.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/mdb.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/mdb.lite.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/mdb.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/mdb.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/modules/animations-extended.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/modules/animations-extended.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/modules/forms-free.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/modules/forms-free.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/modules/scrolling-navbar.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/modules/scrolling-navbar.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/modules/treeview.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/modules/treeview.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/modules/wow.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/modules/wow.min.js.map">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/popper.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/js/popper.min.js">
+      <publishTime>09/09/2020 12:57:05</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/free/forms-free.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/free/scrolling-navbar.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/free/treeview.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/free/wow.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/addons/datatables-select.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/addons/datatables-select2.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/addons/datatables.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/addons/datatables2.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/addons/imagesloaded.pkgd.min.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/addons/jquery.zmd.hierarchical-display.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/addons/masonry.pkgd.min.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/addons/rating.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/free/bs-custom-file-input.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/free/chart.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/free/chartjs-datalabels.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/free/enhanced-modals.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/free/jquery.easing.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/free/velocity.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
+    </File>
+    <File Include="Content/Material/src/js/vendor/free/waves.js">
+      <publishTime>09/09/2020 12:57:09</publishTime>
     </File>
     <File Include="Content/Site.css">
       <publishTime>09/01/2020 09:58:00</publishTime>
@@ -307,6 +583,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/bootstrap.min.js">
       <publishTime>09/01/2020 09:58:03</publishTime>
     </File>
+    <File Include="Scripts/dataTables.bootstrap.min.js">
+      <publishTime>09/09/2020 11:50:53</publishTime>
+    </File>
     <File Include="Scripts/donwloadImg/add-download-btn.js">
       <publishTime>09/04/2020 10:21:34</publishTime>
     </File>
@@ -334,6 +613,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/jquery-3.4.1.slim.min.map">
       <publishTime>09/01/2020 09:58:04</publishTime>
     </File>
+    <File Include="Scripts/jquery.dataTable.min.js">
+      <publishTime>09/09/2020 12:12:41</publishTime>
+    </File>
+    <File Include="Scripts/jquery.dataTables.min.css">
+      <publishTime>09/09/2020 12:09:08</publishTime>
+    </File>
     <File Include="Scripts/jquery.unobtrusive-ajax.min.js">
       <publishTime>09/01/2020 18:43:43</publishTime>
     </File>
@@ -359,19 +644,25 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/01/2020 09:58:00</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>09/01/2020 09:58:00</publishTime>
+      <publishTime>09/11/2020 13:28:40</publishTime>
+    </File>
+    <File Include="Views/Ivuj/Index.cshtml">
+      <publishTime>09/15/2020 09:40:37</publishTime>
+    </File>
+    <File Include="Views/Ivuj/_TablaTurnosPorFecha.cshtml">
+      <publishTime>09/11/2020 08:38:42</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>09/01/2020 09:58:00</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>09/04/2020 10:49:20</publishTime>
+      <publishTime>09/15/2020 09:47:12</publishTime>
     </File>
     <File Include="Views/Turno/GetTurnos.cshtml">
       <publishTime>09/02/2020 21:43:40</publishTime>
     </File>
     <File Include="Views/Turno/Index.cshtml">
-      <publishTime>09/04/2020 12:16:46</publishTime>
+      <publishTime>09/15/2020 11:24:26</publishTime>
     </File>
     <File Include="Views/Turno/_TablaTurnosPartial.cshtml">
       <publishTime>09/03/2020 10:14:35</publishTime>
@@ -383,7 +674,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/01/2020 09:58:00</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>09/03/2020 07:24:17</publishTime>
+      <publishTime>09/15/2020 10:04:30</publishTime>
     </File>
     <File Include="wwwroot/image/banner1.svg">
       <publishTime>09/02/2020 20:22:51</publishTime>

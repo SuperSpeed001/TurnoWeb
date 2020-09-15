@@ -51,10 +51,30 @@
     <Reference Include="BundleTransformer.Core, Version=1.10.0.0, Culture=neutral, PublicKeyToken=973c344c93aac60d, processorArchitecture=MSIL">
       <HintPath>..\packages\BundleTransformer.Core.1.10.0\lib\net40\BundleTransformer.Core.dll</HintPath>
     </Reference>
+    <Reference Include="ClosedXML, Version=0.95.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.3\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.11.3.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.11.3\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.7.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Threading.Tasks" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -116,6 +136,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
@@ -127,16 +148,22 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IvujController.cs" />
     <Compile Include="Controllers\TurnoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ControlTurnoViewModel.cs" />
+    <Compile Include="Models\ListadoTurnoReservadosViewModel.cs" />
+    <Compile Include="Models\ListadoTurnoViewModel.cs" />
     <Compile Include="Models\PrintViewModel.cs" />
+    <Compile Include="Models\Response.cs" />
     <Compile Include="Models\TablaTurnosViewModel.cs" />
     <Compile Include="Models\TurnoSeleccionadoViewModel.cs" />
     <Compile Include="Models\TurnoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Auxiliar.cs" />
+    <Compile Include="Service\Client.cs" />
     <Compile Include="Service\SolicitarTurnoAuxiliar.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +171,65 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Material\css\addons\datatables-select.min.css" />
+    <Content Include="Content\Material\css\addons\datatables-select2.min.css" />
+    <Content Include="Content\Material\css\addons\datatables.min.css" />
+    <Content Include="Content\Material\css\addons\datatables2.min.css" />
+    <Content Include="Content\Material\css\addons\directives.min.css" />
+    <Content Include="Content\Material\css\addons\flag.min.css" />
+    <Content Include="Content\Material\css\addons\jquery.zmd.hierarchical-display.min.css" />
+    <Content Include="Content\Material\css\addons\rating.min.css" />
+    <Content Include="Content\Material\css\bootstrap.css" />
+    <Content Include="Content\Material\css\bootstrap.min.css" />
+    <Content Include="Content\Material\css\mdb.css" />
+    <Content Include="Content\Material\css\mdb.lite.css" />
+    <Content Include="Content\Material\css\mdb.lite.min.css" />
+    <Content Include="Content\Material\css\mdb.min.css" />
+    <Content Include="Content\Material\css\modules\animations-extended.min.css" />
+    <Content Include="Content\Material\css\style.css" />
+    <Content Include="Content\Material\index.html" />
+    <Content Include="Content\Material\js\addons\datatables-select.min.js" />
+    <Content Include="Content\Material\js\addons\datatables-select2.min.js" />
+    <Content Include="Content\Material\js\addons\datatables.min.js" />
+    <Content Include="Content\Material\js\addons\datatables2.min.js" />
+    <Content Include="Content\Material\js\addons\directives.min.js" />
+    <Content Include="Content\Material\js\addons\flag.min.js" />
+    <Content Include="Content\Material\js\addons\imagesloaded.pkgd.min.js" />
+    <Content Include="Content\Material\js\addons\jquery.zmd.hierarchical-display.min.js" />
+    <Content Include="Content\Material\js\addons\masonry.pkgd.min.js" />
+    <Content Include="Content\Material\js\addons\rating.min.js" />
+    <Content Include="Content\Material\js\bootstrap.js" />
+    <Content Include="Content\Material\js\bootstrap.min.js" />
+    <Content Include="Content\Material\js\jquery.js" />
+    <Content Include="Content\Material\js\jquery.min.js" />
+    <Content Include="Content\Material\js\mdb.js" />
+    <Content Include="Content\Material\js\mdb.min.js" />
+    <Content Include="Content\Material\js\modules\animations-extended.min.js" />
+    <Content Include="Content\Material\js\modules\forms-free.min.js" />
+    <Content Include="Content\Material\js\modules\scrolling-navbar.min.js" />
+    <Content Include="Content\Material\js\modules\treeview.min.js" />
+    <Content Include="Content\Material\js\modules\wow.min.js" />
+    <Content Include="Content\Material\js\popper.js" />
+    <Content Include="Content\Material\js\popper.min.js" />
+    <Content Include="Content\Material\src\js\free\forms-free.js" />
+    <Content Include="Content\Material\src\js\free\scrolling-navbar.js" />
+    <Content Include="Content\Material\src\js\free\treeview.js" />
+    <Content Include="Content\Material\src\js\free\wow.js" />
+    <Content Include="Content\Material\src\js\vendor\addons\datatables-select.js" />
+    <Content Include="Content\Material\src\js\vendor\addons\datatables-select2.js" />
+    <Content Include="Content\Material\src\js\vendor\addons\datatables.js" />
+    <Content Include="Content\Material\src\js\vendor\addons\datatables2.js" />
+    <Content Include="Content\Material\src\js\vendor\addons\imagesloaded.pkgd.min.js" />
+    <Content Include="Content\Material\src\js\vendor\addons\jquery.zmd.hierarchical-display.js" />
+    <Content Include="Content\Material\src\js\vendor\addons\masonry.pkgd.min.js" />
+    <Content Include="Content\Material\src\js\vendor\addons\rating.js" />
+    <Content Include="Content\Material\src\js\vendor\free\bs-custom-file-input.js" />
+    <Content Include="Content\Material\src\js\vendor\free\chart.js" />
+    <Content Include="Content\Material\src\js\vendor\free\chartjs-datalabels.js" />
+    <Content Include="Content\Material\src\js\vendor\free\enhanced-modals.js" />
+    <Content Include="Content\Material\src\js\vendor\free\jquery.easing.js" />
+    <Content Include="Content\Material\src\js\vendor\free\velocity.js" />
+    <Content Include="Content\Material\src\js\vendor\free\waves.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -156,11 +242,42 @@
     <Content Include="Scripts\bootbox\bootbox.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\jquery.dataTable.min.js" />
+    <Content Include="Scripts\jquery.dataTables.min.css" />
     <Content Include="wwwroot\image\banner1.svg" />
     <Content Include="wwwroot\image\banner2.svg" />
     <Content Include="wwwroot\image\banner3.svg" />
     <Content Include="wwwroot\image\loader.gif" />
     <Content Include="wwwroot\image\turno.png" />
+    <Content Include="Content\Material\css\addons\datatables-select.min.css.map" />
+    <Content Include="Content\Material\css\addons\datatables-select2.min.css.map" />
+    <Content Include="Content\Material\css\addons\datatables.min.css.map" />
+    <Content Include="Content\Material\css\addons\datatables2.min.css.map" />
+    <Content Include="Content\Material\css\addons\directives.min.css.map" />
+    <Content Include="Content\Material\css\addons\flag.min.css.map" />
+    <Content Include="Content\Material\css\addons\jquery.zmd.hierarchical-display.min.css.map" />
+    <Content Include="Content\Material\css\addons\rating.min.css.map" />
+    <Content Include="Content\Material\css\mdb.lite.min.css.map" />
+    <Content Include="Content\Material\css\mdb.min.css.map" />
+    <Content Include="Content\Material\css\modules\animations-extended.min.css.map" />
+    <Content Include="Content\Material\js\addons\datatables-select.min.js.map" />
+    <Content Include="Content\Material\js\addons\datatables-select2.min.js.map" />
+    <Content Include="Content\Material\js\addons\datatables.min.js.map" />
+    <Content Include="Content\Material\js\addons\datatables2.min.js.map" />
+    <Content Include="Content\Material\js\addons\directives.min.js.map" />
+    <Content Include="Content\Material\js\addons\flag.min.js.map" />
+    <Content Include="Content\Material\js\addons\imagesloaded.pkgd.min.js.map" />
+    <Content Include="Content\Material\js\addons\jquery.zmd.hierarchical-display.min.js.map" />
+    <Content Include="Content\Material\js\addons\masonry.pkgd.min.js.map" />
+    <Content Include="Content\Material\js\addons\rating.min.js.map" />
+    <Content Include="Content\Material\js\mdb.lite.min.js.map" />
+    <Content Include="Content\Material\js\mdb.min.js.map" />
+    <Content Include="Content\Material\js\modules\animations-extended.min.js.map" />
+    <Content Include="Content\Material\js\modules\forms-free.min.js.map" />
+    <Content Include="Content\Material\js\modules\scrolling-navbar.min.js.map" />
+    <Content Include="Content\Material\js\modules\treeview.min.js.map" />
+    <Content Include="Content\Material\js\modules\wow.min.js.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -186,9 +303,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Turno\Index.cshtml" />
     <Content Include="Views\Turno\_TablaTurnosPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Ivuj\Index.cshtml" />
+    <Content Include="Views\Ivuj\_TablaTurnosPorFecha.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

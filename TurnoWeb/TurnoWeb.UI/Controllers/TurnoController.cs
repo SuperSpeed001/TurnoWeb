@@ -1,10 +1,6 @@
-﻿using Microsoft.SqlServer.Server;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using TurnosWeb.UI;
 using TurnoWeb.UI.Models;
@@ -22,8 +18,8 @@ namespace TurnoWeb.UI.Controllers
             var result = auxiliar.GetTurnos().Select
                  (r => new SelectListItem
                  {
-                     Value = $"{r.tur_id}",
-                     Text = r.tur_nombre
+                     Value = $"{r.Idturno}",
+                     Text = r.NombreTurno
                  })
                  .OrderBy(o => o.Text)
                  .ToList();

@@ -61,7 +61,7 @@
 
                 <div class="form-group">                   
                     <div>
-                        <textarea id="idPerObs" class="form-control text-box multi-line" name="texto" cols="40" rows="3" placeholder="Si no vendrá el/la Titular, escribir aquí Nombre, Apellido y DNI de quien asistirá. "></textarea>
+                        <textarea id="idPerObs" class="form-control text-box multi-line" name="texto" cols="40" rows="3" placeholder="Si no vendrá el/la Titular, escribir aquí DNI, Nombre y Apellido de quien asistirá y Número de Cuenta. "></textarea>
                         @Html.ValidationMessageFor(model => model.PerObservacion, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                     @Html.LabelFor(model => model.PerFalta, htmlAttributes: new { @class = "control-label " })
                     <div>
 
-                        @Html.EditorFor(model => model.PerFalta, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                        @Html.EditorFor(model => model.PerFalta, new { htmlAttributes = new { @class = "form-control", @Value = Model.PerFalta.Date.ToString("yyyy-MM-dd"), type = "date" } })
                         @Html.ValidationMessageFor(model => model.PerFalta, "", new { @class = "text-danger" })
                     </div>
                 </div>
@@ -113,17 +113,15 @@
                 <h5 class="modal-title">SISTEMA DE TURNOS WEB DEL IVUJ</h5>
                 <h6>Válido únicamente para la fecha y horarios registrados.
                 </h6>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+               
             </div>
             <div class="modal-body">
 
                 <div id="divImageHolder"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary btnModal" data-dismiss="modal">Cerrar</button>
-                <a class="btn btn-download btn-info" href="" download="Turno.png">Descargar</a>
+                <!--<button type="button" class="btn btn-secondary btnModal" data-dismiss="modal">Cerrar</button>-->
+                <a class="btn btn-download btn-info btnModal" href="" download="Turno.png">Descargar y Cerrar</a>
             </div>
         </div>
     </div>
@@ -287,7 +285,7 @@
                 var fechaSeleccionada = $("#PerFalta").val();
                 var valorSeleccionado = $("input[name='groupRadio']:checked").attr("id");
                 var obserId = $("#idPerObs").val()
-                if (valorSeleccionado.length > 0 && emailId === otroEmail && dniId.length > 0 && nombreId.length > 0 && telefonoId.length > 0 && fechaSeleccionada.length > 0 ) {
+                if (valorSeleccionado.length > 0 && emailId === otroEmail && dniId.length > 6 && nombreId.length > 0 && telefonoId.length > 0 && fechaSeleccionada.length > 0 ) {
                      //alert("dni " + dniId.toString() + "/" + valorSeleccionado.toString() + "/" + nombreId.toString() + "/" + telefonoId.toString() + "/" + emailId.toString() + "/" + turnoId.toString());
                     $.ajax({
                         url: '@Url.Action("CreateAjax", "Turno")', //"/Solicitar/CreateAjax",
