@@ -60,6 +60,10 @@
     <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
     </Reference>
+    <Reference Include="IBM.Data.DB2.iSeries, Version=10.0.0.0, Culture=neutral, PublicKeyToken=9cdb2ebfb1f93a26">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\IBM.Data.DB2.iSeries.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
@@ -147,6 +151,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ControlController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IvujController.cs" />
     <Compile Include="Controllers\TurnoController.cs" />
@@ -154,6 +159,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ControlTurnoViewModel.cs" />
+    <Compile Include="Models\Data\TitularViewModel.cs" />
     <Compile Include="Models\ListadoTurnoReservadosViewModel.cs" />
     <Compile Include="Models\ListadoTurnoViewModel.cs" />
     <Compile Include="Models\PrintViewModel.cs" />
@@ -162,6 +168,7 @@
     <Compile Include="Models\TurnoSeleccionadoViewModel.cs" />
     <Compile Include="Models\TurnoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\As400.cs" />
     <Compile Include="Service\Auxiliar.cs" />
     <Compile Include="Service\Client.cs" />
     <Compile Include="Service\SolicitarTurnoAuxiliar.cs" />
@@ -308,6 +315,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Ivuj\Index.cshtml" />
     <Content Include="Views\Ivuj\_TablaTurnosPorFecha.cshtml" />
+    <Content Include="Views\Control\Index.cshtml" />
+    <Content Include="Views\Control\_TablaTurnosParaCO.cshtml" />
+    <Content Include="Views\Control\SendAs400.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

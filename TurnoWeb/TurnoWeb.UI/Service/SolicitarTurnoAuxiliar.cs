@@ -8,19 +8,27 @@
     using System.Drawing;
     using System.IO;
     using TurnoWeb.UI.Models;
+    using TurnoWeb.UI.Models.Data;
 
     public class SolicitarTurnoAuxiliar
     {     
 
         public SolicitarTurnoAuxiliar() {  }
         private SqlConnection con;
-          
+        private SqlConnection conSql01;
+
         private void connection()
         {
              string constr = ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();     //PRODUCCION
            //string constr = ConfigurationManager.ConnectionStrings["TestConnection"].ToString();       //TEST
             con = new SqlConnection(constr);
 
+        }
+
+        private void ConnectionSrv01()
+        {
+            string constrSql01 = ConfigurationManager.ConnectionStrings["TestConnection"].ToString();
+            conSql01 = new SqlConnection(constrSql01);
         }
 
         public List<ListadoTurnoViewModel> GetTurnos()
@@ -197,6 +205,30 @@
             return data;
         }
 
+        public List<TitularViewModel> GetControlList()
+        {
+            ConnectionSrv01();
+            string query = "SELECT AyNTitular ,DniTitular ,AyNCoTitular ,DniCoTitular ,NumeroCuenta FROM Titular";
+
+            using (SqlCommand cmd = new SqlCommand(query, conSql01))
+            {
+                cmd.CommandType = CommandType.Text;
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                var response = new List<TitularViewModel>();
+                conSql01.Open();
+
+                da.Fill(dt);
+
+                foreach (DataRow item in dt.Rows)
+                {
+                    response.Add(MapToValueSql01(item));
+                }
+                return response;
+            }
+        }
        /* public List<ListadoTurnoReservadosViewModel> GetTurnosReservados()
         {
             connection();
@@ -246,6 +278,45 @@
                 foreach (DataRow item in dt.Rows)
                 {
                     response.Add(MapToValueBusqueda(item));
+                }
+                return response;
+            }
+
+        }
+
+        public List<ListadoTurnoReservadosViewModel> GetTurnosParaCO(int turnoId, string dia, string mes, string anio)
+        {
+            connection();
+            var query = "sp_listarTurnosPorFecha";
+            var fecha = anio + mes + dia;
+            using (SqlCommand cmd = new SqlCommand(query, con))
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add(new SqlParameter("@tur_id", turnoId));
+                cmd.Parameters.Add(new SqlParameter("@hor_fecha", fecha));
+
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                var response = new List<ListadoTurnoReservadosViewModel>();
+                con.Open();
+                da.Fill(dt);
+
+                foreach (DataRow item in dt.Rows)
+                {
+                    response.Add(MapToValueParaCO(item));
+                }
+                var listadoConCuenta = GetControlList();
+                foreach (var item in listadoConCuenta)
+                {
+                    foreach (var item2 in response)
+                    {
+                        if ((int)item.DniTitular == int.Parse(item2.Dni.Trim()) || (int)item.DniCoTitular == int.Parse(item2.Dni.Trim()))
+                        {
+                            //TODO: CONTROL
+                            item2.NumeroCuenta = (int)item.NumeroCuenta;
+                        }
+                    }
                 }
                 return response;
             }
@@ -331,6 +402,35 @@
             };
         }
 
+        private ListadoTurnoReservadosViewModel MapToValueParaCO(DataRow reader)
+        {
+
+            return new ListadoTurnoReservadosViewModel
+            {
+                IdHora = (int)reader["hor_id"],
+                Fecha = DateTime.Parse(reader["hor_fecha"].ToString()),
+                Dia = (string)reader["hor_dia"],
+                Hora = (string)reader["hor_hora"],
+                Dni = (string)reader["per_dni"],
+                NombrePersona = (string)reader["per_nombre"],
+                Observacion = (string)reader["hor_obser"],
+                NombreBox = (string)reader["box_nombre"],
+                EmailPersona = (string)reader["per_email"],
+                TelefonoPersona = (string)reader["per_telef"]
+            };
+        }
+
+        private TitularViewModel MapToValueSql01(DataRow reader)
+        {
+            return new TitularViewModel
+            {
+                NumeroCuenta = (decimal)reader["NumeroCuenta"],
+                ApellidoNombreTitular = (string)reader["AyNTitular"],
+                DniTitular = (decimal)reader["DniTitular"],
+                ApellidoNombreCoTitular = (string)reader["AyNCoTitular"],
+                DniCoTitular = (decimal)reader["DniCoTitular"]
+            };
+        }
         #endregion
 
     }

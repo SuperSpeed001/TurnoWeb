@@ -52,6 +52,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="bin/ExcelNumberFormat.dll">
       <publishTime>03/13/2020 09:36:50</publishTime>
     </File>
+    <File Include="bin/IBM.Data.DB2.iSeries.dll">
+      <publishTime>01/23/2004 05:30:00</publishTime>
+    </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/05/2018 16:10:50</publishTime>
     </File>
@@ -242,10 +245,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2020 11:41:36</publishTime>
     </File>
     <File Include="bin/TurnoWeb.UI.dll">
-      <publishTime>09/15/2020 11:25:43</publishTime>
+      <publishTime>09/21/2020 12:02:11</publishTime>
     </File>
     <File Include="bin/TurnoWeb.UI.pdb">
-      <publishTime>09/15/2020 11:25:43</publishTime>
+      <publishTime>09/21/2020 12:02:11</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>01/23/2014 13:57:34</publishTime>
@@ -637,6 +640,15 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Scripts/modernizr-2.8.3.js">
       <publishTime>09/01/2020 09:58:07</publishTime>
     </File>
+    <File Include="Views/Control/Index.cshtml">
+      <publishTime>09/21/2020 11:44:37</publishTime>
+    </File>
+    <File Include="Views/Control/_TablaTurnosParaCO.cshtml">
+      <publishTime>09/21/2020 11:11:46</publishTime>
+    </File>
+    <File Include="Views/Control/_TablaTurnosPorFecha.cshtml">
+      <publishTime>09/15/2020 13:26:11</publishTime>
+    </File>
     <File Include="Views/Home/About.cshtml">
       <publishTime>09/01/2020 09:58:00</publishTime>
     </File>
@@ -662,7 +674,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/02/2020 21:43:40</publishTime>
     </File>
     <File Include="Views/Turno/Index.cshtml">
-      <publishTime>09/15/2020 11:24:26</publishTime>
+      <publishTime>09/18/2020 07:45:42</publishTime>
     </File>
     <File Include="Views/Turno/_TablaTurnosPartial.cshtml">
       <publishTime>09/03/2020 10:14:35</publishTime>

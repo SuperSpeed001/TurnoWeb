@@ -1,0 +1,89 @@
+﻿@model IEnumerable<TurnoWeb.UI.Models.ListadoTurnoReservadosViewModel>
+
+<div>
+  
+</div>
+<table id="dtBasicExample" class="table table-striped table-bordered table-responsive-lg" cellspacing="0" width="100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeroCuenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hora)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dni)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombrePersona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Observacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreBox)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.EmailPersona)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefonoPersona)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeroCuenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hora)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dni)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombrePersona)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Observacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreBox)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailPersona)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefonoPersona)
+            </td>
+            <!---->
+            <td>
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+            </td>
+
+        </tr>
+        }
+
+    </tbody>
+</table>
+

@@ -3283,11 +3283,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\TunoWeb\\TurnoWeb\\Turnos.Common\\Turnos.Common.csproj",
+      "projectUniqueName": "C:\\Viento Norte\\Turno\\TunoWeb\\TurnoWeb\\Turnos.Common\\Turnos.Common.csproj",
       "projectName": "Turnos.Common",
-      "projectPath": "C:\\TunoWeb\\TurnoWeb\\Turnos.Common\\Turnos.Common.csproj",
+      "projectPath": "C:\\Viento Norte\\Turno\\TunoWeb\\TurnoWeb\\Turnos.Common\\Turnos.Common.csproj",
       "packagesPath": "C:\\Users\\Sistemas\\.nuget\\packages\\",
-      "outputPath": "C:\\TunoWeb\\TurnoWeb\\Turnos.Common\\obj\\",
+      "outputPath": "C:\\Viento Norte\\Turno\\TunoWeb\\TurnoWeb\\Turnos.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
