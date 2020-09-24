@@ -16,3 +16,12 @@ C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.csproj.
 C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.dll
 C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.pdb
 C:\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.csprojAssemblyReference.cache
+C:\Viento Norte\Turno\TunoWeb\TurnoWeb\Turnos.Common\bin\Debug\netstandard2.0\Turnos.Common.deps.json
+C:\Viento Norte\Turno\TunoWeb\TurnoWeb\Turnos.Common\bin\Debug\netstandard2.0\Turnos.Common.dll
+C:\Viento Norte\Turno\TunoWeb\TurnoWeb\Turnos.Common\bin\Debug\netstandard2.0\Turnos.Common.pdb
+C:\Viento Norte\Turno\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.csprojAssemblyReference.cache
+C:\Viento Norte\Turno\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.AssemblyInfoInputs.cache
+C:\Viento Norte\Turno\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.AssemblyInfo.cs
+C:\Viento Norte\Turno\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.csproj.CoreCompileInputs.cache
+C:\Viento Norte\Turno\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.dll
+C:\Viento Norte\Turno\TunoWeb\TurnoWeb\Turnos.Common\obj\Debug\netstandard2.0\Turnos.Common.pdb
